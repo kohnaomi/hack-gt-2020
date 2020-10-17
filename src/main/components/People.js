@@ -1,7 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import HoverImage from "./HoverImage.jsx";
-import style from "../Staff.module.css";
+import style from "../main.module.css";
+import Stats from "./Stats.js"
+import Popup from 'reactjs-popup';
+
+
 
 export default function People({ elements }) {
   return (
@@ -12,7 +16,6 @@ export default function People({ elements }) {
         xs={{ span: 11, offset: 1 }}
         lg={{ span: 8, offset: 2 }}
       >
-        <Col className={style.contribTitle}>Web Developers</Col>
       </Row>
       <Row className={style.imageRow}>
         {elements.map((person) => (
@@ -23,10 +26,12 @@ export default function People({ elements }) {
             className={style.imageColumn}
             style={{ height: "100%" }}
           >
-            <HoverImage person={person} />
+            <Popup style={{ position: "absolute" }} trigger={<button><HoverImage person={person} /></button>} position="center right">
+              <Stats />
+            </Popup>
           </Col>
         ))}
       </Row>
-    </Container>
+    </Container >
   );
 }

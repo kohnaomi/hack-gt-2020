@@ -1,44 +1,274 @@
+.Mainfont {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 50px;
+    font-style: underline;
+}
 
-.Main-font {
-    font-family: 'Titillium Web', sans-serif;
+.popupBox {
+    background-color: white;
+    width: 1000px;
+    height: 1000px;
 }
 
 .flipcard {
-      background-color: transparent;
-      width: 300px;
-      height: 200px;
-      border: 1px solid #f1f1f1;
-      perspective: 1000px;
+    background-color: transparent;
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    border-style:  solid;
+  }
+  
+  .flipcardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center, middle;
+    font-family: 'Roboto Mono', monospace;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(248, 236, 236, 0.2);
+  }
+  
+  .flipcard:hover .flipcardInner {
+    transform: rotateY(180deg);
+  }
+
+  .flipcard:hover .flipcardFront {
+    visibility: hidden;
+  }
+
+  .flipcardFront, .flipcardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flipcardFront {
+    background-color: #bbb;
+    color: black;
+
+  }
+  
+  .flipcardBack {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+@media screen and (max-width: 499px) {
+    .imageStyle {
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      display: inline-block;
+      width: 198px;
+      height: 290px;
     }
-    
-    .flipcardInner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
+
+  
+    .title {
+      text-align: center;
+      font-size: 420%;
+      position: relative;
+      color: rgb(14, 7, 100);
+      font-weight: bold;
+      font-family: 'Oswald', sans-serif;
+      background-color: white;
     }
-    
-    .flipcard:hover .flip-card-inner {
-      transform: rotateY(180deg);
+  
+    .imageContainer {
+      /* position: absolute; */
+      top: 0;
+      left: auto;
+      margin-top: 70px;
+      display: block;
+      width: 100%
     }
-    
-    .flipcardFront, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
+  
+    .webTitle {
+      width: 50%;
     }
-    
-    .flipcardFront {
-      background-color: #bbb;
-      color: black;
+  
+    .contribTitle {
+      width: 50%;
     }
-    
-    .flipcardBack {
-      background-color: dodgerblue;
-      color: white;
-      transform: rotateY(180deg);
+  
+    .imageHover {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      display: inline-block;
     }
+  
+    .imageOverlayTitle  {
+      visibility: hidden;
+      display: none;
+      position: absolute;
+    }
+  
+    .descriptionXS {
+      visibility: visible;
+      font-size: 20px;
+      width: 98%;
+      color: black;
+      background-color: rgb(234, 234, 238);
+      height: 100%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      text-align: center;
+      padding: 15px;
+      border-radius: 5px 5px 5px 5px;
+      justify-content: center;
+      align-items: center;
+      display: inline-block;
+    }
+}
+  
+  body {
+    line-height: 1.4;
+  }
+  
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    border: none;
+    background: #555;
+    color: #fff;
+    padding: 7px 20px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background: #666;
+  }
+
+  
+  .imageContainer {
+    /* position: absolute; */
+    top: 0;
+    left: auto;
+    margin-top: 70px;
+    display: block;
+  }
+  
+  
+  .imageRow {
+    margin-left: 0;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .imageColumn {
+    margin-bottom: 30px;
+  }
+  
+  .imageHover {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .imageStyle {
+    width: 190px;
+    height: 293px;
+  }
+  
+  @media screen and (min-width: 500px) {
+    .title {
+      text-align: center;
+      font-size: 100px;
+      position: relative;
+      color: rgb(14, 7, 100);
+      font-weight: bold;
+      font-family: 'Oswald', sans-serif;
+      background-color: white;
+    }
+  
+    .imageOverlay {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      background: rgba(15, 15, 15, 0.8);
+      opacity: 0;
+      z-index: 100;
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+  
+    .imageOverlayTitle {
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 30%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+  
+    .imageStyle {
+      width: 100%;
+      height: auto;
+      -webkit-transition: -webkit-transform .5s ease;
+      transition: -webkit-transform .5s ease;
+      transition: transform .5s ease;
+      transition: transform .5s ease, -webkit-transform .5s ease;
+    }
+  
+    /* Show Overlay on mouse over */
+    .imageColumn:hover .imageOverlayTitle {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    .imageColumn:hover .imageOverlay {
+      opacity: 1;
+    }
+  
+    /* Zoom effect */
+    .imageColumn:hover img {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  
+  
+    .descriptionXS {
+      visibility: hidden;
+      display: none;
+      position: relative;
+      height: 0px;
+    }
+}
+
+.popup-content {
+    margin: auto;
+    background: rgb(255, 255, 255);
+    width: 100%;
+    padding: 5px;
+  }
+  .popup-arrow {
+    color: rgb(255, 255, 255);
+  }
+  [role='tooltip'].popup-content {
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  }
+  
+  .popup-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  [data-popup='tooltip'].popup-overlay {
+    background: transparent;
+  }

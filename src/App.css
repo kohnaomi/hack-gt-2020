@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: gray;
 }
 
 .App-logo {
@@ -35,4 +36,44 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.popup {
+  border-color: #000; 
+  border-style: groove; 
+  border-width: 2px; 
+  padding: 0px; 
+  background-color: #FFF;
+  font-size: 70%;
+  position: absolute;
+  top: 200px;
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  padding: 5px;
+  border-color: #000; 
+  border-style: groove; 
+  border-width: 2px; 
+  padding: 0px; 
+  background-color: #FFF;
+  font-size: 70%;
+  position: absolute;
+  top: 200px;
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
 }

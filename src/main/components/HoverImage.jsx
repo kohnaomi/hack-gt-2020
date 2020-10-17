@@ -1,65 +1,47 @@
 import React from "react";
 import { Image } from "react-bootstrap";
-import LinkedIn from "../images/linkedin.png";
-import siteImage from "../images/site.png";
-import emailImage from "../images/email.png";
-import style from "../Staff.module.css";
+import style from "../main.module.css";
+import ranger from "../images/soldier.jpg";
+import Stats from "./Stats.js";
+
 
 export default function HoverImage({
   person: {
-    name,
-    year,
-    linked,
-    site,
-    college,
-    major,
-    interests,
-    desc,
     img,
-    email,
+    name,
+    age,
+    height,
+    weight,
+    bio
   },
-})
+}) {
 
-return (
-  <div>
-    <div className={style.flipcard}>
-      <div className={style.flipcardInner}>
-        <div className={style.flipcardFront}>
-          <Image src={img} className={style.imageStyle} alt={name} />
-          <div className={style.imageOverlay}>
-            <div className={style.flipcardBack}>
-              {[
-                { text: "Year", content: year },
-                { text: "Major", content: major },
-                { text: "College", content: college },
-                { text: "Interests/ECs", content: interests },
-              ].map(
-                (val, i) =>
-                  val.content && (
-                    <div key={i}>
-                      <span style={{ color: "white" }}>{val.text}: </span>
-                      <span>{val.content}</span>
-                    </div>
-                  )
-              )}
-            </div>
+  return (
+    <div>
+      <div className={style.flipcard}>
+        <div className={style.flipcardInner}>
+          <div className={style.flipcardFront}>
+            <Image src={img} style={{ width: "198px", height: "290px" }} />
+          </div>
+          <div className={style.flipcardBack}>
+            {[
+              { text: "Name", content: name },
+              { text: "Age", content: age },
+              { text: "Height", content: height },
+              { text: "Weight", content: weight },
+              { text: "About", content: bio }
+            ].map(
+              (val, i) =>
+                val.content && (
+                  <div key={i}>
+                    <span style={{ color: "white" }}>{val.text}: </span>
+                    <span>{val.content}</span>
+                  </div>
+                )
+            )}
           </div>
         </div>
-        <div className={style.icons}>
-          {iconType("", "linkedIn")}
-          {iconType("", "personalSite")}
-          {iconType("", "email")}
-        </div>
       </div>
-    </div>
-
-    <div className={style.imageTitle}>
-      {name}
-    </div>
-
-    <div className={style.descriptionXS}>
-      <h3>{desc}</h3>
-    </div>
-  </div>
-);
+    </div >
+  );
 }
