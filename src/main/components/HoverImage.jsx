@@ -29,7 +29,7 @@ export default function HoverImage({
               { text: "Age", content: age },
               { text: "Height", content: height },
               { text: "Weight", content: weight },
-              { text: "About", content: bio }
+              { text: "Expertise", content: bio }
             ].map(
               (val, i) =>
                 val.content && (
